@@ -50,3 +50,31 @@ static void Display(Final f[],int N){
 	}
 	
 	}	
+	  void update(Final f[],int N)
+    {
+	 String num;
+	int i;
+	int flag=0;
+	Scanner obj=new Scanner(System.in);
+	System.out.println("Enter the no.to be modified");
+	num=obj.next();
+	for(i=0;i<N;i++)
+	{
+	if(num.equals(f[i].phonenumber))
+	{ 
+	 System.out.println("Enter the name of the person");
+	 f[i].name=obj.next();
+	 System.out.println("Enter the phone no.");
+     f[i].phonenumber=obj.next();
+	 System.out.println("Enter the amount of the bill");
+	 f[i].amount=obj.nextInt();
+	 flag=1;
+	 break;
+	 }
+	}
+				if(flag==0)
+					System.out.println("Record not found");
+				else
+					System.out.println("Record succesfully added");		  
+	 
+}
