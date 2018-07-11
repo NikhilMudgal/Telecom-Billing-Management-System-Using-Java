@@ -107,3 +107,63 @@ static void Display(Final f[],int N){
 		System.out.println("Amount paid successfully");
 		}
 	}
+
+void delete(Final f[],int N)
+{
+	int i,flag=0;
+	String ph;
+	Scanner obj=new Scanner(System.in);
+	System.out.println("Enter the no. you whose record you want to delete");
+	ph=obj.next();
+	for(i=0;i<N;i++)
+	{
+		if(ph.equals(f[i].phonenumber))
+		{
+			flag=1;
+			break;
+		}
+		
+	}
+	if(flag==0)
+		System.out.println("Record not found");
+	else
+	{
+	int j=i;
+	while(j<N-1)
+	{
+		f[j]=f[j+1];
+        j++;	
+	}
+		System.out.println("Record deleted successfully");
+	for(i=0;i<N;i++)
+	{
+		System.out.println("Name : "+f[i].name);
+		System.out.println("Phone no.: "+f[i].phonenumber);
+		System.out.println("Amount : "+f[i].amount);
+	}
+	}
+}
+
+	public static void main(String args[])
+	{
+		int N,j,i;
+		Scanner obj=new Scanner(System.in);
+	    System.out.println("Enter the no. of records you want to add "); 
+		N=obj.nextInt();
+		Final f1=new Final();
+	     Final f[]=new Final[N];
+	     for(j=0;j<N;j++)
+	    f[j]=new Final();
+        System.out.println("Lets add the records ");
+	     for(i=0;i<N;i++)
+	      f[i].Add();
+	    System.out.println("Now lets search records ");
+		f1.search(f,N);
+		System.out.println("Lets update record ");
+		f1.update(f, N);
+		System.out.println("Pay the bill ");
+		f1.pay(f, N);
+		Display(f,N);
+		f1.delete(f,N);
+	}
+}
