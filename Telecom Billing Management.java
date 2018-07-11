@@ -23,3 +23,30 @@ static void Display(Final f[],int N){
    System.out.println("The amount in the account of the person is "+f[i].amount);
    }
   }
+
+  void search(Final f[],int N)
+  {
+    String ph;
+    int i,j;
+     boolean a=false;
+     Scanner obj=new Scanner(System.in);
+     System.out.println("Enter the Phone no. you want to search");
+     ph=obj.next();
+	for(i=0;i<N;i++)
+	{j=ph.compareTo(f[i].phonenumber);
+	if(j==0)
+	{       a=true;
+			break;
+	} 
+	}
+ 	
+	if(a==false)
+	System.out.println("Record not found");
+	else
+	{
+		System.out.println("RECORD FOUND SUCCESSFULLY");
+		System.out.println("Name :"+f[i].name);
+  		System.out.println("Mobile no."+f[i].phonenumber);
+	}
+	
+	}	
