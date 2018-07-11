@@ -78,3 +78,32 @@ static void Display(Final f[],int N){
 					System.out.println("Record succesfully added");		  
 	 
 }
+
+	void pay(Final f[],int N)
+	{
+	 int amt,flag=0,i;
+	 String ph;
+	 Scanner obj=new Scanner(System.in);
+	 System.out.println("Enter the phone no. whose bill is to be paid");
+	 ph=obj.next();
+	 System.out.println("Enter the amount you are going to pay");
+	 amt=obj.nextInt();
+	 for(i=0;i<N;i++)
+	 {
+	 if(ph.equals(f[i].phonenumber))
+	 {
+	 f[i].amount-=amt;
+	 flag=1;
+	 break;
+	 }
+	 }
+	 if(flag==0)
+	System.out.println("Record not found");
+	else
+	{
+		if(amt<f[i].amount)
+		System.out.println("You have paid"+f[i].amount+"less than the actual amount to be paid\n The remaining amount will be added in your new bill");
+		else
+		System.out.println("Amount paid successfully");
+		}
+	}
